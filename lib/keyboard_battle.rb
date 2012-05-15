@@ -50,20 +50,17 @@ class KeyboardBattle
   private
 
   def load_keyboards
-    ks = [ ]
+    keyboards = [ ]
     Dir.glob(File.join('lib','keyboards','*.txt')) { |filename|
-      n = File.basename(filename, '.txt')
-      k = Keyboard.new
+      keyboard = Keyboard.new
       File.open_and_process(filename,'r') { |file|
-        l = eval(file.gets)
-        r = eval(file.gets)
-        k.left = l
-        k.right = r
-        k.name = n
-        ks << k
+        keyboard.left  = eval(file.gets)
+        keyboard.right = eval(file.gets)
+        keyboard.name  = File.basename(filename, '.txt')
+        keyboards << keyboard
       }
     }
-    ks
+    keyboards
   end
 
   def process
