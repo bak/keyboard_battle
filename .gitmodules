@@ -1,0 +1,6 @@
+[submodule "submodules/jquery"]
+	path = submodules/jquery
+	url = git://github.com/jquery/jquery.git
+[submodule "submodules/html5-boilerplate"]
+	path = submodules/html5-boilerplate
+	url = git://github.com/h5bp/html5-boilerplate.git
