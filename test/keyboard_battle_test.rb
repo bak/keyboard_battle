@@ -51,14 +51,31 @@ describe KeyboardBattle do
         end
       end
 
+      describe "with colemak" do
+        it "reports reach effort" do
+          @kb.results[:colemak][:reach_effort].must_equal 22
+        end
+
+        it "reports alternation effort" do
+          @kb.results[:colemak][:alternation_effort].must_equal 9
+        end
+
+        it "reports raw score" do
+          @kb.results[:colemak][:raw_score].must_equal 31
+        end
+      end
+
       it "should have an informative to_s" do
         [
           /qbf(.*)qwerty(.*)reach(.*)30/m,
           /qbf(.*)dvorak(.*)reach(.*)21/m,
+          /qbf(.*)colemak(.*)reach(.*)22/m,
           /qbf(.*)qwerty(.*)alternation(.*)11/m,
           /qbf(.*)dvorak(.*)alternation(.*)13/m,
+          /qbf(.*)colemak(.*)alternation(.*)9/m,
           /qbf(.*)qwerty(.*)raw(.*)41/m,
-          /qbf(.*)dvorak(.*)raw(.*)34/m
+          /qbf(.*)dvorak(.*)raw(.*)34/m,
+          /qbf(.*)colemak(.*)raw(.*)31/m
         ].each { |m|
           @kb.to_s.must_match m
         }
