@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'keyboard_battle'
 
-Dir.glob('texts/*.txt') do |filename|
+Dir.glob('texts/*.*') do |filename|
   kb = KeyboardBattle.new(filename)
   print kb.to_s
 end
