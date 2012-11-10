@@ -2,7 +2,7 @@
 
 KeyboardBattle is a simple program that compares the performance of keyboard layouts according to two metrics, reach effort (travel from the home row being increasingly effortful) and alternation effort (typing consecutive keys with a single hand being more effortful). For both, a lower value means less effort.
 
-The program comes with the QWERTY and Dvorak layouts. The format for a keyboard layout description file can be discerned from lib/keyboards/*.txt.
+The program comes with the QWERTY, Dvorak, and Colemak layouts. The format for a keyboard layout description file can be discerned from lib/keyboards/*.txt.
 
 # Usage
 
