@@ -1,2 +1,0 @@
-%w(` 1 2 3 4 5 6 ' , . p y a o  e u i ; q j k x ~ ! @ # $ % ^ " < > P Y A O E U I : Q J K X) #left
-%w(7 8 9 0 [ ] f g c r l / = \\ d h t n s - b m w v z & * ( ) { } F G C R L ? + | D H T N S _ B M W V Z) #right

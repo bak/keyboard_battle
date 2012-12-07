@@ -2,25 +2,28 @@
 
 KeyboardBattle is a simple program that compares the performance of keyboard layouts according to two metrics, reach effort (travel from the home row being increasingly effortful) and alternation effort (typing consecutive keys with a single hand being more effortful). For both, a lower value means less effort.
 
-The program comes with the QWERTY, Dvorak, and Colemak layouts. The format for a keyboard layout description file can be discerned from lib/keyboards/*.txt.
+The program comes with the QWERTY, Dvorak, and Colemak layouts. The format for a keyboard layout description file can be discerned from `lib/keyboards/*.txt`.
 
-# Usage
+## Installation
 
-E.g.: `ruby -w examples/do_battle.rb`
+    $ gem install keyboard_battle
 
-# Limitations and shortcomings
+## Usage
 
-At the moment, the script is not packaged up in any useful way, so the way to run it against a text is to add that text to the `texts` directory.
+E.g., `keyboard_battle my_text.txt`, or try `keyboard_battle --bundled`
 
-Only ASCII characters will be counted (though any character may appear in a text file).
+## Limitations and shortcomings
 
-# Testing
+Only ASCII characters will be counted (though any character may appear in the source text).
 
-`ruby -w test/keyboard_battle_test.rb`.
-
-Tests are written with [MiniTest](https://github.com/seattlerb/minitest), so be on ruby 1.9 or get the `minitest` gem.
-
-
-# Bundled texts
+## Bundled texts
 
 Except for "the quick brown fox," bundled texts are sourced from archive.org.
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

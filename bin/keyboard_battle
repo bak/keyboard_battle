@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'keyboard_battle'
+
+KeyboardBattle::CommandDispatcher.new(ARGF.argv)
