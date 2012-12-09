@@ -6,7 +6,7 @@ describe KeyboardBattle::Exercise do
     let(:exercise) { KeyboardBattle::Exercise.new('texts/qbf.txt', KeyboardBattle::Keyboard.all) }
 
     it "loads the keyboards" do
-      expect(exercise.send(:keyboards).map {|k| k.name}).to eq(%w(qwerty dvorak colemak))
+      expect(exercise.send(:keyboards).map {|k| k::NAME}).to eq(%w(qwerty dvorak colemak))
     end
 
     describe "when processing texts" do

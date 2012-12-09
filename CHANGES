@@ -1,0 +1,15 @@
+# Changes
+
+## v0.0.5
+
+* Ridiculous (15-20x) speed improvements.
+* Fixed "--bundled" option
+
+## v0.0.2 - 0.0.4
+
+* Gemified
+* minor changes and improvements
+
+## v0.0.1
+
+* Just a hacked-out bundle of scripts.

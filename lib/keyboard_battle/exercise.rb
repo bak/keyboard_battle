@@ -1,17 +1,15 @@
 module KeyboardBattle
   class Exercise
 
-    attr_accessor :results, :filename
+    attr_accessor :results, :filename, :keyboards
 
-    def initialize(filename, keyboards)
-      @filename  = filename
-      @keyboards = keyboards
+    def initialize(f, k)
+      @filename  = f
+      @keyboards = k
       @results   = run
     end
 
     private
-
-    attr_accessor :keyboards
 
     # tests a passage of text for reach effort expended (zero for home row, 
     # increasing for reach), and hand alternation effort. In both values,
@@ -26,23 +24,24 @@ module KeyboardBattle
         open_and_process(filename,'r') do |file|
           while line = file.gets
             line.each_char do |char|
-              if keyboard.combined.include?(char)
+              if effort = keyboard::MAP[char]
 
                 # measure alternation efficiency
-                hand = keyboard.left.include?(char) ? 'l' : 'r'
+                hand = keyboard::LEFT_KEYS.include?(char) ? 'l' : 'r'
                 if prev_hand
                   alternation_effort += (hand == prev_hand) ? 1 : 0
                 end
                 prev_hand = hand
 
                 # measure reach efficiency
-                reach_effort += EFFORT[keyboard.combined.find_index(char)]
+                reach_effort += effort
               end
+
             end
           end
         end
 
-        results[keyboard.name.to_sym] = {
+        results[keyboard::NAME.to_sym] = {
           :alternation_effort => alternation_effort,
           :reach_effort => reach_effort,
           :raw_score => (alternation_effort + reach_effort)
@@ -56,11 +55,6 @@ module KeyboardBattle
       yield f
       f.close()
     end
-
-    EFFORT = ( # left hand + right hand effort values
-      %w(3 2 2 2 2 2 2 1 1 1 1 1 0 0 0 0 1 1 1 1 1 2 3 2 2 2 2 2 2 1 1 1 1 1 0 0 0 0 1 1 1 1 1 2) +
-      %w(2 2 2 2 2 2 1 1 1 1 1 1 2 3 1 0 0 0 0 1 1 1 1 1 1 2 2 2 2 2 2 1 1 1 1 1 1 2 3 1 0 0 0 0 1 1 1 1 1 1)
-    ).collect { |el| el.to_i }
 
   end
 end

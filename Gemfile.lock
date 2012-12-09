@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    keyboard_battle (0.0.1)
+    keyboard_battle (0.0.5)
 
 GEM
   remote: https://rubygems.org/

@@ -2,10 +2,11 @@ module KeyboardBattle
   class CommandDispatcher
 
     def initialize(args)
+
       if opt = args.first
         case opt
         when '--bundled'
-          self.run(Dir.glob('texts/*.txt'))
+          self.run(Dir.glob("#{File.expand_path('../../..', __FILE__)}/texts/*.txt"))
         else
           self.run(args)
         end
