@@ -11,7 +11,7 @@ describe KeyboardBattle::CommandDispatcher do
 
   describe 'an instance with --bundled' do
     it 'runs all bundled files' do
-      KeyboardBattle::CommandDispatcher.any_instance.should_receive(:run).with(Dir.glob("texts/*.txt"))
+      KeyboardBattle::CommandDispatcher.any_instance.should_receive(:run).with(Dir.glob("#{File.expand_path('../../..', __FILE__)}/texts/*.txt"))
       KeyboardBattle::CommandDispatcher.new(["--bundled"])
     end
   end
